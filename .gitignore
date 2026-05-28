@@ -1,0 +1,26 @@
+# Terraform Cloud / свой backend только локально; в CI Hexlet подмешивает backend "local".
+terraform/backend.tf
+
+.terraform/
+**/.terraform/
+# .terraform.lock.hcl коммитим — в CI (Hexlet / readonly lock) репозиторий без lock падает на init.
+terraform.tfstate
+terraform.tfstate.backup
+**/terraform.tfstate
+**/terraform.tfstate.backup
+*.tfvars
+**/*.tfvars
+!*.tfvars.example
+!**/*.tfvars.example
+
+venv/
+__pycache__/
+
+.DS_Store
+
+.vault_pass
+.ansible/
+
+# Upmon: только локально (ping-URL = секрет канала). В git — только *.example.
+scripts/upmon.local.env
+**/upmon.local.env
